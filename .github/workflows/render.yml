@@ -61,6 +61,6 @@ jobs:
           [ "${{ inputs.half }}" = "true" ] && HALF="--half"
           for EP in ${{ steps.pick.outputs.list }}; do
             echo "::group::$EP"
-            ./run_episode.sh "$EP" $HALF --publish
+            bash ./run_episode.sh "$EP" $HALF --publish
             echo "::endgroup::"
           done
