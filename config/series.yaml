@@ -1,0 +1,64 @@
+# ===== الهوية الموحدة لسلسلة "يعني إيه" =====
+video:
+  width: 1080          # فيديو طولي (Reels / TikTok / Shorts)
+  height: 1920
+  fps: 30
+
+colors:
+  bg: "#121629"        # الكحلي الأساسي
+  gold: "#FFD166"      # لون الكلمة الجديدة
+  white: "#FFFFFF"
+  red: "#E63946"
+  caption_stroke: "#0B0E1C"
+
+fonts:
+  title: assets/fonts/Tajawal-Black.ttf
+  bold: assets/fonts/Tajawal-ExtraBold.ttf
+  body: assets/fonts/Tajawal-Bold.ttf
+
+intro:
+  duration: 3.0                 # 0:00 - 0:03
+  kicker_text: "يعني إيه"       # ثابتة في الأعلى بالأبيض
+  kicker_y: 520                 # المسافة من المنتصف لفوق (px)
+  word_size: 190
+  kicker_size: 110
+  sfx: thud
+
+badge:
+  enabled: true
+  margin: 60
+  size: 46
+
+captions:
+  enabled: true
+  words_per_chunk: 3
+  size: 78
+  y: -620                       # تحت المنتصف (سالب = تحت)
+
+audio:
+  vo_volume: 1.0
+  sfx_volume: 0.55
+  music: ""                     # مسار موسيقى خلفية اختيارية (sfx/music_bed.mp3)
+  music_volume: 0.10
+
+# ===== الأصوات (ElevenLabs) =====
+voice:
+  model_id: eleven_multilingual_v2
+  # اختار صوت مصري من Voice Library وحط الـ ID هنا أو في .env (ELEVENLABS_VOICE_ID)
+  voice_id: ""
+  settings:
+    stability: 0.45
+    similarity_boost: 0.8
+    style: 0.25
+    use_speaker_boost: true
+    speed: 1.0
+
+# ===== الاستوكات (Recraft) =====
+assets:
+  model: recraftv4_styles          # raster PNG بنفس الاستايل
+  size: "1:1"
+  # بيتضاف لكل prompt عشان الاستايل يفضل ثابت
+  prompt_suffix: >-
+    flat vector cartoon illustration, thick dark outlines, faceless characters,
+    simple shapes, limited palette, isolated on plain white background, no text
+  remove_background: true

@@ -1,0 +1,123 @@
+# ============================================================
+#  حلقة: يعني إيه.. شيوعية؟   (المدة المستهدفة ~45 ثانية)
+# ============================================================
+# الإحداثيات: (0,0) = منتصف الشاشة | x يمين موجب | y فوق موجب
+# الشاشة 1080x1920 => x من -540 لـ 540 ، y من -960 لـ 960
+# cue = كلمة من التعليق الصوتي؛ العنصر يظهر لحظة نطقها (من توقيتات ElevenLabs)
+# at  = ثواني من بداية المشهد (بديل للـ cue)
+# in  = pop | drop | rise | slide_left | slide_right | fade
+# ============================================================
+
+id: ep02_communism
+word: "شيوعية"
+word_color: gold
+badge: "أنظمة العالم 2/4"
+
+# الجسر الختامي (Cliffhanger) — غيّر الكلمة للحلقة الجاية فعلاً
+teaser:
+  word: "اشتراكية"
+  vo: "الحلقة الجاية.. يعني إيه اشتراكية؟ تابعنا عشان متفوتكش."
+
+# ---------- مكتبة الاستوكات للحلقة (Recraft بنفس الاستايل) ----------
+assets:
+  gear: "a single industrial cog gear icon, green and dark outline"
+  wheat: "a bundle of golden wheat stalks icon"
+  factory: "a big factory building with chimneys, green walls"
+  fence: "a short dark metal fence with a padlock, horizontal"
+  owner: "faceless businessman in black suit and red tie, arms crossed, full body, standing"
+  worker_a: "faceless factory worker in green overalls holding a wrench, full body, standing"
+  worker_b: "faceless factory worker in green overalls carrying a box, full body, standing"
+  coins: "a small stack of gold coins"
+  gov_building: "central government building with columns and a flag, front view"
+  farm: "small farm with a barn and field, icon"
+  bread: "a loaf of bread icon"
+  house: "a small simple house icon"
+  book: "an open school book icon"
+  scale: "a balance scale (justice scale), slightly tilted"
+  thinker: "faceless person in casual clothes with hand on chin thinking, full body"
+  question: "a big bold question mark symbol, gold color"
+
+scenes:
+  # 0:00 - 0:03  ——  الإنترو الموحد
+  - id: intro
+    type: intro
+    vo: "يعني إيه.. شيوعية؟"
+    sfx:
+      - {name: thud, at: 0.0}
+      - {name: impact, cue: "شيوعية"}
+    elements:
+      - {asset: gear,  x: -330, y: -260, h: 260, in: pop, cue: "شيوعية", spin: true}
+      - {asset: gear,  x:  340, y:  250, h: 190, in: pop, cue: "شيوعية", spin: true}
+      - {asset: wheat, x:  330, y: -280, h: 300, in: rise, cue: "شيوعية"}
+      - {asset: wheat, x: -330, y:  260, h: 240, in: rise, cue: "شيوعية"}
+
+  # 0:03 - 0:18  ——  مثال الـ 3 أصحاب
+  - id: story
+    vo: "تخيل تلاتة أصحاب فتحوا مشروع؛ واحد تعب أكتر وواحد تعب أقل، لكن في الآخر الأرباح اتقسمت عليهم بالتساوي التام.. ومفيش حد فيهم يملك المكان لوحده."
+    sfx:
+      - {name: whoosh, at: 0.0}
+      - {name: split, cue: "بالتساوي"}
+      - {name: pop, cue: "يملك"}
+    elements:
+      - {asset: factory, x: 0, y: 420, h: 560, in: rise, at: 0.1}
+      - asset: fence
+        x: 0
+        y: 170
+        h: 170
+        in: slide_left
+        cue: "مشروع"
+        out: {anim: drop_out, cue: "ومفيش"}
+      - {asset: owner,    x: -300, y: -180, h: 560, in: pop, cue: "تلاتة"}
+      - {asset: worker_a, x:    0, y: -180, h: 560, in: pop, cue: "أصحاب"}
+      - {asset: worker_b, x:  300, y: -180, h: 560, in: pop, cue: "فتحوا"}
+      - {asset: coins, x: -300, y: -500, h: 150, in: drop, cue: "بالتساوي"}
+      - {asset: coins, x:    0, y: -500, h: 150, in: drop, cue: "بالتساوي", delay: 0.12}
+      - {asset: coins, x:  300, y: -500, h: 150, in: drop, cue: "بالتساوي", delay: 0.24}
+
+  # 0:18 - 0:35  ——  التعريف
+  - id: definition
+    vo: "الشيوعية فكرة اقتصادية وسياسية بتقول: مفيش ملكية خاصة. الدولة والمجتمع هما اللي بيملكوا كل المصانع والأراضي، والكل بيشتغل حسب قدرته، وياخد حسب حاجته، عشان ميبقاش فيه غني وفقير."
+    sfx:
+      - {name: whoosh, at: 0.0}
+      - {name: clicks, cue: "بيملكوا"}
+      - {name: pop, cue: "حاجته"}
+    elements:
+      - asset: factory
+        x: -320
+        y: 520
+        h: 300
+        in: slide_left
+        at: 0.2
+        moves: [{cue: "بيملكوا", x: 0, y: 150, h: 60, dur: 0.6}]
+        out: {anim: fade, cue: "بيملكوا", delay: 0.6}
+      - asset: farm
+        x: 320
+        y: 520
+        h: 300
+        in: slide_right
+        cue: "خاصة"
+        moves: [{cue: "بيملكوا", x: 0, y: 150, h: 60, dur: 0.6}]
+        out: {anim: fade, cue: "بيملكوا", delay: 0.6}
+      - {asset: gov_building, x: 0, y: 120, h: 520, in: drop, cue: "الدولة"}
+      - {asset: bread, x: -320, y: -330, h: 210, in: pop, cue: "حاجته"}
+      - {asset: house, x:    0, y: -330, h: 210, in: pop, cue: "حاجته", delay: 0.12}
+      - {asset: book,  x:  320, y: -330, h: 210, in: pop, cue: "حاجته", delay: 0.24}
+
+  # 0:35 - 0:45  ——  السؤال الختامي
+  - id: question
+    vo: "الفكرة على الورق هدفها المساواة، لكن في الواقع قتلت حافز المنافسة والابتكار عند ناس كتير. تفتكر المساواة المطلقة عادلة فعلاً؟"
+    sfx:
+      - {name: tilt, cue: "الواقع"}
+      - {name: pop, cue: "تفتكر"}
+      - {name: outro_chime, cue: "فعلاً"}
+    elements:
+      - asset: scale
+        x: 0
+        y: 250
+        h: 560
+        in: drop
+        at: 0.1
+        tilt: {cue: "الواقع", deg: -8}
+        moves: [{cue: "تفتكر", x: -260, y: 380, h: 380, dur: 0.5}]
+      - {asset: thinker,  x: 170, y: -120, h: 640, in: slide_right, cue: "تفتكر"}
+      - {asset: question, x: 360, y:  300, h: 300, in: pop, cue: "المطلقة", float: true}

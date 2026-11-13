@@ -1,0 +1,26 @@
+# مكتبة المؤثرات الصوتية للسلسلة كلها — بتتولد مرة واحدة بـ ElevenLabs وتتحفظ في sfx/
+# python tools/gen_sfx.py
+thud:
+  prompt: "Deep cinematic single drum thud hit, punchy low end, short tail, no music"
+  duration: 1.2
+impact:
+  prompt: "Short punchy whoosh into impact hit for motion graphics title reveal"
+  duration: 1.5
+pop:
+  prompt: "Soft cartoon pop sound for an icon appearing, clean UI"
+  duration: 0.5
+split:
+  prompt: "Three quick coin clinks in sequence, items being divided evenly, clean"
+  duration: 1.2
+clicks:
+  prompt: "Rhythmic mechanical clicks and soft marching footsteps, steady tempo, factory"
+  duration: 3.0
+whoosh:
+  prompt: "Fast clean swoosh transition, motion graphics"
+  duration: 0.7
+tilt:
+  prompt: "Small wooden creak of a balance scale tilting"
+  duration: 1.0
+outro_chime:
+  prompt: "Soft gentle bell chime ending, warm, short reverb"
+  duration: 2.0

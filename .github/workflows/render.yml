@@ -1,0 +1,66 @@
+# بيشتغل على السيرفر بتاعك (self-hosted runner):
+# - أي تعديل/إضافة لملف في episodes/ => ريندر تلقائي + رفع على Releases
+# - أو يدوي من تبويب Actions => Run workflow
+name: render-episode
+
+on:
+  push:
+    paths: ["episodes/*.yaml"]
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: "مسار الحلقة (مثال: episodes/02_communism.yaml)"
+        required: true
+      half:
+        description: "ريندر سريع نص الدقة؟"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # لازم عشان gh release create/upload
+
+concurrency:
+  group: render
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: self-hosted
+    timeout-minutes: 90
+    env:
+      RECRAFT_API_TOKEN: ${{ secrets.RECRAFT_API_TOKEN }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
+      GH_TOKEN: ${{ github.token }}
+      YAANY_CACHE: ${{ vars.YAANY_CACHE }}   # فاضي = ~/yaany-cache (استوكات وأصوات محفوظة بين التشغيلات)
+      VENV: ${{ vars.YAANY_VENV }}           # فاضي = ~/yaany-venv (من setup.sh)
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Pick episodes
+        id: pick
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "list=${{ inputs.episode }}" >> "$GITHUB_OUTPUT"
+          else
+            BEFORE="${{ github.event.before }}"
+            if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+              LIST=$(ls episodes/*.yaml)
+            else
+              LIST=$(git diff --name-only --diff-filter=AM "$BEFORE" "${{ github.sha }}" -- 'episodes/*.yaml')
+            fi
+            echo "list=$(echo $LIST)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Render & publish
+        run: |
+          export YAANY_CACHE="${YAANY_CACHE:-$HOME/yaany-cache}"
+          HALF=""
+          [ "${{ inputs.half }}" = "true" ] && HALF="--half"
+          for EP in ${{ steps.pick.outputs.list }}; do
+            echo "::group::$EP"
+            ./run_episode.sh "$EP" $HALF --publish
+            echo "::endgroup::"
+          done
