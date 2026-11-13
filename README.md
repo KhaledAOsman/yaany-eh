@@ -8,6 +8,12 @@ episodes/XX.yaml  ─┬─> Recraft (استوكات بنفس الاستايل) 
                    └─> plan_timeline.py -> timeline.json -> Blender (VSE) -> <id>.mp4 -> GitHub Releases
 ```
 
+## طريقة الشغل
+1. تبعت السكربت في الشات لـ Claude.
+2. Claude بيكتب `episodes/XX.yaml` (المشاهد + التوقيتات) ويرسم الاستوكات SVG في `art/` بنفس الاستايل.
+3. تعمل Commit + Push من GitHub Desktop.
+4. السيرفر بيعمل الريندر ويرفع الفيديو على Releases.
+
 ## 1) تجهيز السيرفر (مرة واحدة)
 ```bash
 git clone https://github.com/<you>/<repo>.git && cd <repo>
@@ -16,14 +22,23 @@ nano .env                # RECRAFT_API_TOKEN / ELEVENLABS_API_KEY / ELEVENLABS_V
 gh auth login            # عشان الرفع على Releases
 ```
 
-## 2) تثبيت الاستايل (مرة واحدة للسلسلة كلها)
+## 2) الاستوكات: رسم يدوي (الافتراضي) — Canva أو Illustrator
+قائمة الرسومات المطلوبة لكل حلقة بتتكتب في `art/TODO_<id>.md`.
+- **Canva:** تصميم 1080×1080، صفحة لكل عنصر **بنفس ترتيب** `assets:` في ملف الحلقة → Download → PNG (Transparent background) → All pages:
+  `python tools/import_art.py canva.zip --episode episodes/01_communism.yaml`
+- **Illustrator:** Artboard لكل عنصر واسمه = اسم العنصر → Export for Screens (PNG أو SVG):
+  `python tools/import_art.py <export-folder>`
+- أو احفظ يدوي: `art/factory.png` … (الخلفية البيضا بتتشال أوتوماتيك لو مش شفافة)
+- معاينة قبل ما تخلص الرسم: `python tools/gen_assets.py EP.yaml --allow-missing`
+
+## 2-ب) (اختياري) توليد AI بـ Recraft — محتاج رصيد
 حط من 1 لـ 10 صور مرجعية في `style/refs/` (مرخصة/مشتراة، من غير علامة مائية) وبعدين:
 ```bash
 python tools/make_style.py          # => style/style.json  (اعمله commit)
 ```
 
 ## 3) حلقة جديدة
-1. انسخ `episodes/02_communism.yaml` وعدّل: `id`, `word`, `badge`, `teaser`, `assets`, `scenes`.
+1. انسخ `episodes/01_communism.yaml` وعدّل: `id`, `word`, `badge`, `teaser`, `assets`, `scenes`.
 2. شغّل:
 ```bash
 ./run_episode.sh episodes/03_xxx.yaml --stills     # صور مراجعة سريعة

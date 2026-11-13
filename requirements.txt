@@ -4,3 +4,4 @@ pillow>=10.0
 arabic-reshaper>=3.0
 python-bidi>=0.4
 rembg[cpu]>=2.0.50
+cairosvg>=2.7

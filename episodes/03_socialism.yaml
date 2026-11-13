@@ -1,0 +1,107 @@
+# ============================================================
+#  حلقة: يعني إيه.. اشتراكية؟   (~42 ثانية) — تكمل القصة
+# ============================================================
+id: ep03_socialism
+word: "اشتراكية"
+word_color: "#0EB7F8"
+badge: "أنظمة العالم 3/4"
+
+teaser:
+  word: "ليبرالية"
+  vo: "وفي الحلقة الأخيرة.. يعني إيه ليبرالية؟"
+
+assets:
+  circle_red: "red circle (communism)"
+  circle_gold: "gold circle (capitalism)"
+  circle_sky: "sky blue circle (socialism)"
+  owner: "businessman in suit"
+  factory: "factory"
+  coins: "coins"
+  gov_building: "government building"
+  school: "school"
+  hospital: "hospital"
+  bus: "bus"
+  piggy: "piggy bank (pensions)"
+  citizen_a: "citizen bust green"
+  citizen_b: "citizen bust red"
+  citizen_c: "citizen bust blue"
+  flag_sweden: "Sweden flag"
+  flag_norway: "Norway flag"
+  question: "question mark"
+
+scenes:
+  - id: intro
+    type: intro
+    vo: "يعني إيه.. اشتراكية؟"
+    sfx:
+      - {name: thud, at: 0.0}
+      - {name: morph, cue: "اشتراكية"}
+    elements:
+      - asset: circle_red
+        x: -300
+        y: -320
+        h: 220
+        in: slide_left
+        at: 0.1
+        moves: [{cue: "اشتراكية", x: 0, h: 160, dur: 0.4}]
+        out: {anim: fade, cue: "اشتراكية", delay: 0.35, dur: 0.15}
+      - asset: circle_gold
+        x: 300
+        y: -320
+        h: 220
+        in: slide_right
+        at: 0.1
+        moves: [{cue: "اشتراكية", x: 0, h: 160, dur: 0.4}]
+        out: {anim: fade, cue: "اشتراكية", delay: 0.35, dur: 0.15}
+      - {asset: circle_sky, x: 0, y: -320, h: 280, in: pop, cue: "اشتراكية", delay: 0.4}
+
+  - id: middle
+    vo: "الاشتراكية هي الحل الوسط، اللي حاول ياخد أحسن ما في النظامين. بتسمحلك تملك شركتك وتكسب فلوس عادي، بس الدولة بتاخد ضرائب أعلى من الأغنياء."
+    sfx:
+      - {name: whoosh, at: 0.0}
+      - {name: pop, cue: "تملك"}
+      - {name: calculator, cue: "ضرائب"}
+    elements:
+      - {text: "الحل الوسط", color: "#0EB7F8", size: 140, x: 0, y: 250, in: drop, cue: "الوسط", out: {anim: fade, cue: "بتسمحلك"}}
+      - {asset: owner,   x: -290, y: -250, h: 470, in: slide_left, cue: "تملك"}
+      - {asset: factory, x: -250, y:  360, h: 330, in: rise, cue: "شركتك"}
+      - asset: coins
+        x: -40
+        y: -330
+        h: 150
+        in: drop
+        cue: "فلوس"
+        moves: [{cue: "ضرائب", x: 250, y: 300, h: 110, dur: 0.6}]
+        out: {anim: fade, cue: "ضرائب", delay: 0.6}
+      - {asset: gov_building, x: 260, y: 360, h: 330, in: drop, cue: "الدولة"}
+
+  - id: services
+    vo: "الفلوس دي بتروح عشان توفر تعليم، وصحة، ومواصلات، ومعاشات، مجانية أو مدعومة لكل الناس، بحيث محدش يقع تحت خط الفقر، وفي نفس الوقت محدش يتمنع من النجاح."
+    sfx:
+      - {name: pop, cue: "تعليم"}
+      - {name: pop, cue: "وصحة"}
+      - {name: pop, cue: "ومواصلات"}
+      - {name: pop, cue: "ومعاشات"}
+      - {name: bell, cue: "لكل"}
+    elements:
+      - {asset: school,   x: -360, y: 430, h: 230, in: pop, cue: "تعليم"}
+      - {asset: hospital, x: -120, y: 430, h: 230, in: pop, cue: "وصحة"}
+      - {asset: bus,      x:  130, y: 420, h: 150, in: slide_right, cue: "ومواصلات"}
+      - {asset: piggy,    x:  380, y: 420, h: 170, in: pop, cue: "ومعاشات"}
+      - {asset: citizen_a, x: -300, y: -240, h: 320, in: rise, cue: "لكل"}
+      - {asset: citizen_b, x:    0, y: -240, h: 320, in: rise, cue: "لكل", delay: 0.1}
+      - {asset: citizen_c, x:  300, y: -240, h: 320, in: rise, cue: "لكل", delay: 0.2}
+
+  - id: question
+    vo: "دول زي السويد والنرويج طبقت أفكار قريبة منها وحققت نجاح كبير. تفتكر أي نظام في التلاتة: الشيوعية، ولا الرأسمالية، ولا الاشتراكية، هو الأنسب لمجتمعنا؟"
+    sfx:
+      - {name: pop, cue: "السويد"}
+      - {name: pop, cue: "والنرويج"}
+      - {name: outro_music, cue: "تفتكر"}
+    elements:
+      - {asset: flag_sweden, x: -230, y: 380, h: 300, in: rise, cue: "السويد", out: {anim: fade, cue: "تفتكر"}}
+      - {asset: flag_norway, x:  230, y: 380, h: 300, in: rise, cue: "والنرويج", out: {anim: fade, cue: "تفتكر"}}
+      - {asset: question,   x: 0, y: 430, h: 330, in: pop, cue: "تفتكر", delay: 0.3, float: true}
+      - {asset: circle_red,  x: -300, y: -220, h: 210, in: pop, cue: "الشيوعية"}
+      - {asset: circle_gold, x:    0, y: -220, h: 210, in: pop, cue: "الرأسمالية"}
+      - {asset: circle_sky,  x:  300, y: -220, h: 210, in: pop, cue: "الاشتراكية"}

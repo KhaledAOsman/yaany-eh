@@ -55,6 +55,9 @@ voice:
 
 # ===== الاستوكات (Recraft) =====
 assets:
+  # manual = رسم كانفا/إليستريتور في art/   |   recraft = توليد AI (محتاج رصيد)
+  source: manual
+  sticker: true      # حواف بيضا حوالين الرسمة عشان تبان على الكحلي
   model: recraftv4_styles          # raster PNG بنفس الاستايل
   size: "1:1"
   # بيتضاف لكل prompt عشان الاستايل يفضل ثابت

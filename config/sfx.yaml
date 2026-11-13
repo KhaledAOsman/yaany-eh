@@ -24,3 +24,33 @@ tilt:
 outro_chime:
   prompt: "Soft gentle bell chime ending, warm, short reverb"
   duration: 2.0
+vote_clicks:
+  prompt: "Several quick clicks of hands raising and voting buttons pressed, light, clean"
+  duration: 1.5
+paper:
+  prompt: "Paper ballots sliding and dropping into a plastic box, soft rustle"
+  duration: 1.5
+bell:
+  prompt: "Light soft single bell ding, clean, positive"
+  duration: 1.2
+lock_clank:
+  prompt: "Heavy metal padlock snapping shut, loud metallic clank"
+  duration: 1.2
+coins_jingle:
+  prompt: "Gold coins jingling and clinking together, bright, short"
+  duration: 1.5
+cash_register:
+  prompt: "Retro cash register ka-ching with drawer opening"
+  duration: 1.5
+speedometer:
+  prompt: "Engine revving up quickly with rising speedometer whine, short"
+  duration: 1.8
+morph:
+  prompt: "Electronic morph merge sound, two tones blending into one, sci-fi UI"
+  duration: 1.5
+calculator:
+  prompt: "Fast typing on a desk calculator, plastic button clicks"
+  duration: 1.5
+outro_music:
+  prompt: "Calm warm short outro music, soft piano and pad, gentle ending, no vocals"
+  duration: 6

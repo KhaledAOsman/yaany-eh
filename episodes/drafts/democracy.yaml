@@ -1,0 +1,138 @@
+# ============================================================
+#  حلقة: يعني إيه.. ديمقراطية؟   (المدة المستهدفة ~42 ثانية)
+# ============================================================
+id: ep03_democracy
+word: "ديمقراطية"
+word_color: "#0EB7F8"
+badge: "أنظمة الحكم 1/4"
+# الجسر الختامي موجود جوه التعليق الصوتي للمشهد الأخير (ديكتاتورية) — مفيش teaser منفصل
+
+assets:
+  voter_green: "faceless person bust in green shirt raising one hand to vote"
+  voter_red: "faceless person bust in red shirt raising one hand to vote"
+  pizza: "a pizza slice icon"
+  burger: "a burger icon"
+  ballot_box: "transparent ballot box with a slot"
+  ballot: "a ballot paper with a checked box"
+  parliament: "parliament building with blue dome and flag"
+  president: "elected president in suit with sash, waving"
+  speech: "speech bubble, freedom of expression"
+  shield: "blue protection shield with check mark"
+  padlock: "huge heavy steel padlock"
+
+scenes:
+  # 0:00 - 0:03 — الإنترو
+  - id: intro
+    type: intro
+    vo: "يعني إيه.. ديمقراطية؟"
+    sfx:
+      - {name: thud, at: 0.0}
+      - {name: pop, cue: "ديمقراطية"}
+    elements:
+      - {asset: voter_green, x: -330, y: -280, h: 240, in: pop, cue: "ديمقراطية"}
+      - {asset: voter_red,   x:  330, y: -280, h: 240, in: pop, cue: "ديمقراطية", delay: 0.08}
+      - {asset: voter_red,   x: -330, y:  260, h: 200, in: pop, cue: "ديمقراطية", delay: 0.16}
+      - {asset: voter_green, x:  330, y:  260, h: 200, in: pop, cue: "ديمقراطية", delay: 0.24}
+
+  # 0:03 - 0:16 — حكم الشعب + مثال الأكل
+  - id: majority
+    vo: "الكلمة أصلها يوناني ومعناها: حكم الشعب. تخيل عشرة صحاب بيقرروا يطلبوا أكل إيه؛ سبعة اختاروا بيتزا، وتلاتة اختاروا برجر.. فالأغلبية كسبت، والكل طلب بيتزا."
+    sfx:
+      - {name: whoosh, at: 0.0}
+      - {name: vote_clicks, cue: "عشرة"}
+      - {name: pop, cue: "بيتزا"}
+      - {name: pop, cue: "برجر"}
+      - {name: whoosh, cue: "فالأغلبية"}
+    elements:
+      - text: "حكم الشعب"
+        color: "#0EB7F8"
+        size: 150
+        x: 0
+        y: 250
+        in: drop
+        cue: "حكم"
+        out: {anim: fade, cue: "تخيل"}
+      # 10 صحاب: 7 أخضر (بيتزا) + 3 أحمر (برجر)
+      - {asset: voter_green, x: -420, y:  200, h: 250, in: pop, cue: "عشرة"}
+      - {asset: voter_green, x: -210, y:  200, h: 250, in: pop, cue: "عشرة", delay: 0.06}
+      - {asset: voter_green, x:    0, y:  200, h: 250, in: pop, cue: "عشرة", delay: 0.12}
+      - {asset: voter_green, x:  210, y:  200, h: 250, in: pop, cue: "عشرة", delay: 0.18}
+      - {asset: voter_green, x:  420, y:  200, h: 250, in: pop, cue: "عشرة", delay: 0.24}
+      - {asset: voter_green, x: -420, y: -150, h: 250, in: pop, cue: "عشرة", delay: 0.30}
+      - {asset: voter_green, x: -210, y: -150, h: 250, in: pop, cue: "عشرة", delay: 0.36}
+      - {asset: voter_red,   x:    0, y: -150, h: 250, in: pop, cue: "عشرة", delay: 0.42}
+      - {asset: voter_red,   x:  210, y: -150, h: 250, in: pop, cue: "عشرة", delay: 0.48}
+      - {asset: voter_red,   x:  420, y: -150, h: 250, in: pop, cue: "عشرة", delay: 0.54}
+      - asset: pizza
+        x: -260
+        y: 590
+        h: 260
+        in: pop
+        cue: "بيتزا"
+        moves: [{cue: "فالأغلبية", x: 0, y: 600, h: 380, dur: 0.5}]
+      - asset: burger
+        x: 260
+        y: 590
+        h: 220
+        in: pop
+        cue: "برجر"
+        out: {anim: pop_out, cue: "فالأغلبية"}
+
+  # 0:16 - 0:31 — الانتخابات
+  - id: elections
+    vo: "في الدول، ده بيحصل عن طريق الانتخابات؛ الشعب بيختار ممثلين عنه يحكموا لفترة محددة، ولو مقصروش بيكملوا، ولو فشلوا، الشعب بيغيرهم في الصندوق الجاي."
+    sfx:
+      - {name: whoosh, at: 0.0}
+      - {name: paper, cue: "الانتخابات"}
+      - {name: bell, cue: "يحكموا"}
+      - {name: pop, cue: "فشلوا"}
+    elements:
+      - {asset: ballot_box, x: 0, y: 260, h: 520, in: drop, at: 0.1}
+      - asset: ballot
+        x: -70
+        y: 700
+        h: 170
+        in: drop
+        cue: "الانتخابات"
+        moves: [{cue: "الانتخابات", delay: 0.45, x: 0, y: 420, h: 80, dur: 0.35}]
+        out: {anim: fade, cue: "الانتخابات", delay: 0.8, dur: 0.15}
+      - asset: ballot
+        x: 70
+        y: 700
+        h: 170
+        in: drop
+        cue: "الانتخابات"
+        delay: 0.3
+        moves: [{cue: "الانتخابات", delay: 0.75, x: 0, y: 420, h: 80, dur: 0.35}]
+        out: {anim: fade, cue: "الانتخابات", delay: 1.1, dur: 0.15}
+      - {asset: parliament, x: -330, y: -260, h: 250, in: rise, cue: "ممثلين"}
+      - {asset: president,  x:    0, y: -290, h: 390, in: rise, cue: "يحكموا"}
+      - {asset: speech,     x:  330, y: -240, h: 220, in: pop,  cue: "فشلوا"}
+
+  # 0:31 - 0:42 — حماية الأقلية + الجسر للديكتاتورية
+  - id: minority
+    vo: "بس الديمقراطية مش بس حكم الأغلبية، لازم كمان تحمي حقوق الأقلية. طب لو شخص واحد قرر يلغي الصندوق ويحكم لوحده؟ ده بقى عكسها تماماً.. استنوا الحلقة الجاية عشان تعرفوا يعني إيه ديكتاتورية!"
+    sfx:
+      - {name: pop, cue: "تحمي"}
+      - {name: lock_clank, cue: "يلغي", delay: 0.25}
+      - {name: impact, cue: "ديكتاتورية"}
+    elements:
+      - asset: ballot_box
+        x: 0
+        y: 300
+        h: 480
+        in: fade
+        at: 0.0
+        out: {anim: pop_out, cue: "يلغي"}
+      - asset: shield
+        x: 0
+        y: -250
+        h: 420
+        in: pop
+        cue: "تحمي"
+        out: {anim: fade, cue: "يلغي"}
+      - {asset: voter_red, x: -170, y: -290, h: 230, in: pop, cue: "الأقلية", out: {anim: fade, cue: "يلغي"}}
+      - {asset: voter_red, x:    0, y: -290, h: 230, in: pop, cue: "الأقلية", delay: 0.1, out: {anim: fade, cue: "يلغي"}}
+      - {asset: voter_red, x:  170, y: -290, h: 230, in: pop, cue: "الأقلية", delay: 0.2, out: {anim: fade, cue: "يلغي"}}
+      - {asset: padlock, x: 0, y: 200, h: 600, in: pop, cue: "يلغي", delay: 0.2}
+      - {text: "الديكتاتورية", color: red, size: 95, x: -200, y: 640, in: slide_left, cue: "عكسها"}

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # حلقة كاملة بأمر واحد:
-#   ./run_episode.sh episodes/02_communism.yaml              # إنتاج حقيقي
-#   ./run_episode.sh episodes/02_communism.yaml --mock       # تجربة بدون APIs (مجانية)
-#   ./run_episode.sh episodes/02_communism.yaml --half       # ريندر سريع نص الدقة
-#   ./run_episode.sh episodes/02_communism.yaml --publish    # + رفع على GitHub Releases
-#   ./run_episode.sh episodes/02_communism.yaml --stills     # صور للمراجعة بدل الفيديو
+#   ./run_episode.sh episodes/01_communism.yaml              # إنتاج حقيقي
+#   ./run_episode.sh episodes/01_communism.yaml --mock       # تجربة بدون APIs (مجانية)
+#   ./run_episode.sh episodes/01_communism.yaml --half       # ريندر سريع نص الدقة
+#   ./run_episode.sh episodes/01_communism.yaml --publish    # + رفع على GitHub Releases
+#   ./run_episode.sh episodes/01_communism.yaml --stills     # صور للمراجعة بدل الفيديو
 set -euo pipefail
 cd "$(dirname "$0")"
 

@@ -1,0 +1,120 @@
+# ============================================================
+#  حلقة: يعني إيه.. رأسمالية؟   (~45 ثانية) — مرتبطة بالشيوعية
+# ============================================================
+id: ep02_capitalism
+word: "رأسمالية"
+word_color: gold
+badge: "أنظمة العالم 2/4"
+# الجسر للاشتراكية موجود جوه التعليق الصوتي للمشهد الأخير
+
+assets:
+  coins: "a small stack of gold coins"
+  owner: "businessman in suit"
+  thinker: "casual person"
+  burger_shop: "burger restaurant shop front"
+  shop_closed: "closed shop with shutter and red X"
+  referee: "referee with whistle (the state)"
+  phone_apple: "smartphone with apple fruit icon"
+  phone_star: "smartphone with star icon"
+  consumer: "happy shopper with bag"
+  scale: "balance scale"
+  worker_a: "simple worker"
+
+scenes:
+  - id: intro
+    type: intro
+    vo: "يعني إيه.. رأسمالية؟"
+    sfx:
+      - {name: thud, at: 0.0}
+      - {name: coins_jingle, cue: "رأسمالية"}
+    elements:
+      - {asset: coins, x: -330, y: -280, h: 170, in: drop, cue: "رأسمالية", float: true}
+      - {asset: coins, x:  330, y: -260, h: 140, in: drop, cue: "رأسمالية", delay: 0.1, float: true}
+      - {asset: coins, x: -320, y:  270, h: 130, in: pop,  cue: "رأسمالية", delay: 0.2, float: true}
+      - {asset: coins, x:  320, y:  290, h: 160, in: pop,  cue: "رأسمالية", delay: 0.3, float: true}
+
+  - id: market
+    vo: "عكس الشيوعية تماماً! الرأسمالية بتقولك: السوق مفتوح، اجتهد واكسب براحتك. مفيش سقف لثروتك، وكل المصانع والشركات مملوكة لأفراد، مش للحكومة."
+    sfx:
+      - {name: whoosh, at: 0.0}
+      - {name: cash_register, cue: "واكسب"}
+      - {name: pop, cue: "سقف"}
+      - {name: whoosh, cue: "مملوكة"}
+    elements:
+      - {asset: owner,   x: -320, y: -240, h: 470, in: slide_left,  cue: "مفتوح"}
+      - {asset: thinker, x:  320, y: -240, h: 470, in: slide_right, cue: "مفتوح", delay: 0.1}
+      - asset: burger_shop
+        x: -280
+        y: 260
+        h: 260
+        in: pop
+        cue: "اجتهد"
+        moves: [{cue: "سقف", x: -280, y: 300, h: 300, dur: 0.4}]
+      - {asset: burger_shop, x: -440, y: 580, h: 130, in: pop, cue: "سقف", delay: 0.1}
+      - {asset: burger_shop, x: -280, y: 600, h: 130, in: pop, cue: "سقف", delay: 0.2}
+      - {asset: burger_shop, x: -120, y: 580, h: 130, in: pop, cue: "سقف", delay: 0.3}
+      - asset: burger_shop
+        x: 280
+        y: 260
+        h: 260
+        in: pop
+        cue: "اجتهد"
+        delay: 0.1
+        out: {anim: fade, cue: "سقف", dur: 0.2}
+      - {asset: shop_closed, x: 280, y: 260, h: 260, in: fade, cue: "سقف"}
+      - {asset: referee, x: 0, y: -260, h: 430, in: rise, cue: "مملوكة"}
+
+  - id: competition
+    vo: "ميزتها إنها بتخلق منافسة شرسة؛ كل شركة بتحاول تقدم لك أحسن جودة بأقل سعر عشان تكسبك، وده اللي عمل التطور التكنولوجي اللي عايشينه النهاردة."
+    sfx:
+      - {name: speedometer, cue: "منافسة"}
+      - {name: pop, cue: "جودة"}
+      - {name: pop, cue: "سعر"}
+      - {name: coins_jingle, cue: "تكسبك"}
+    elements:
+      - asset: phone_apple
+        x: -250
+        y: 330
+        h: 440
+        in: slide_left
+        at: 0.2
+        moves: [{cue: "جودة", y: 400, h: 480, dur: 0.3}, {cue: "سعر", y: 330, h: 440, dur: 0.3}, {cue: "التطور", x: -200, h: 520, dur: 0.4}]
+      - asset: phone_star
+        x: 250
+        y: 330
+        h: 440
+        in: slide_right
+        cue: "منافسة"
+        moves: [{cue: "سعر", y: 400, h: 480, dur: 0.3}, {cue: "تكسبك", y: 330, h: 440, dur: 0.3}, {cue: "التطور", x: 200, h: 520, dur: 0.4}]
+      - {asset: consumer, x: 0, y: -260, h: 470, in: rise, cue: "تكسبك"}
+      - {text: "أسرع.. وأرخص", color: gold, size: 90, x: 0, y: 690, in: drop, cue: "جودة", out: {anim: fade, cue: "التطور"}}
+
+  - id: inequality
+    vo: "لكن عيبها إن الغني بيزيد غنى، والفقير ممكن يتفرم في النص! وعشان نحل الخناقة بين الشيوعية والرأسمالية، ظهر نظام تالت في النص.. استنوا الحلقة الجاية عشان تعرفوا يعني إيه اشتراكية!"
+    sfx:
+      - {name: tilt, cue: "الغني"}
+      - {name: whoosh, cue: "تالت"}
+      - {name: impact, cue: "اشتراكية"}
+    elements:
+      - asset: scale
+        x: 0
+        y: 330
+        h: 480
+        in: drop
+        at: 0.1
+        tilt: {cue: "الغني", deg: 12}
+      - asset: owner
+        x: -280
+        y: -260
+        h: 430
+        in: rise
+        cue: "الغني"
+        moves: [{cue: "بيزيد", y: -150, h: 470, dur: 0.5}]
+      - asset: worker_a
+        x: 280
+        y: -260
+        h: 430
+        in: rise
+        cue: "والفقير"
+        moves: [{cue: "يتفرم", y: -360, h: 360, dur: 0.5}]
+      - {text: "الاشتراكية", color: "#0EB7F8", size: 95, x: -200, y: 680, in: slide_left, cue: "تالت"}

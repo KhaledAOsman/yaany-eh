@@ -8,15 +8,15 @@
 # in  = pop | drop | rise | slide_left | slide_right | fade
 # ============================================================
 
-id: ep02_communism
+id: ep01_communism
 word: "شيوعية"
 word_color: gold
-badge: "أنظمة العالم 2/4"
+badge: "أنظمة العالم 1/4"
 
 # الجسر الختامي (Cliffhanger) — غيّر الكلمة للحلقة الجاية فعلاً
 teaser:
-  word: "اشتراكية"
-  vo: "الحلقة الجاية.. يعني إيه اشتراكية؟ تابعنا عشان متفوتكش."
+  word: "رأسمالية"
+  vo: "الحلقة الجاية.. يعني إيه رأسمالية؟ تابعنا عشان متفوتكش."
 
 # ---------- مكتبة الاستوكات للحلقة (Recraft بنفس الاستايل) ----------
 assets:
@@ -67,12 +67,12 @@ scenes:
         in: slide_left
         cue: "مشروع"
         out: {anim: drop_out, cue: "ومفيش"}
-      - {asset: owner,    x: -300, y: -180, h: 560, in: pop, cue: "تلاتة"}
-      - {asset: worker_a, x:    0, y: -180, h: 560, in: pop, cue: "أصحاب"}
-      - {asset: worker_b, x:  300, y: -180, h: 560, in: pop, cue: "فتحوا"}
-      - {asset: coins, x: -300, y: -500, h: 150, in: drop, cue: "بالتساوي"}
-      - {asset: coins, x:    0, y: -500, h: 150, in: drop, cue: "بالتساوي", delay: 0.12}
-      - {asset: coins, x:  300, y: -500, h: 150, in: drop, cue: "بالتساوي", delay: 0.24}
+      - {asset: owner,    x: -300, y: -140, h: 540, in: pop, cue: "تلاتة"}
+      - {asset: worker_a, x:    0, y: -140, h: 540, in: pop, cue: "أصحاب"}
+      - {asset: worker_b, x:  300, y: -140, h: 540, in: pop, cue: "فتحوا"}
+      - {asset: coins, x: -300, y: -520, h: 130, in: drop, cue: "بالتساوي"}
+      - {asset: coins, x:    0, y: -520, h: 130, in: drop, cue: "بالتساوي", delay: 0.12}
+      - {asset: coins, x:  300, y: -520, h: 130, in: drop, cue: "بالتساوي", delay: 0.24}
 
   # 0:18 - 0:35  ——  التعريف
   - id: definition

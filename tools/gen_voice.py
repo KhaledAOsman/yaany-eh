@@ -1,8 +1,8 @@
 """Voice-over per scene with ElevenLabs + character timestamps (used for cues & captions).
 
-    python tools/gen_voice.py episodes/02_communism.yaml
-    python tools/gen_voice.py episodes/02_communism.yaml --only story --force
-    python tools/gen_voice.py episodes/02_communism.yaml --mock   # silent audio, fake timings
+    python tools/gen_voice.py episodes/01_communism.yaml
+    python tools/gen_voice.py episodes/01_communism.yaml --only story --force
+    python tools/gen_voice.py episodes/01_communism.yaml --mock   # silent audio, fake timings
 """
 import argparse
 import base64

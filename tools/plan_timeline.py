@@ -2,7 +2,7 @@
 
 Blender then just *executes* this file, so all the logic lives here and is testable without Blender.
 
-    python tools/plan_timeline.py episodes/02_communism.yaml
+    python tools/plan_timeline.py episodes/01_communism.yaml
 """
 import argparse
 import math
@@ -187,7 +187,13 @@ class Planner:
         return total
 
     def element(self, sid, meta, vo_start, end, el, channel):
-        path = self.d / "assets" / f"{el['asset']}.png"
+        if "text" in el:  # Arabic text as an element
+            el = dict(el, asset=el.get("id", f"txt{channel}"))
+            path = self.text_png(f"el_{sid}_{channel}", el["text"], self.cfg["fonts"]["title"],
+                                 el.get("size", 100), color(self.cfg, el.get("color", "white")))
+            el.setdefault("h", Image.open(path).size[1])
+        else:
+            path = self.d / "assets" / f"{el['asset']}.png"
         if not path.exists():
             self.warnings.append(f"asset '{el['asset']}' missing (run tools/gen_assets.py)")
             return

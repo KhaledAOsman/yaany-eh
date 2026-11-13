@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 
 echo "== system packages"
 sudo apt-get update -y
-sudo apt-get install -y ffmpeg git curl libgl1 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6
+sudo apt-get install -y ffmpeg git curl libcairo2 librsvg2-bin libgl1 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6
 
 echo "== GitHub CLI"
 if ! command -v gh >/dev/null; then
@@ -30,9 +30,9 @@ echo "== .env"
 chmod +x run_episode.sh tools/publish.sh
 
 echo "== smoke test (no APIs)"
-./run_episode.sh episodes/02_communism.yaml --mock --half
+./run_episode.sh episodes/01_communism.yaml --mock --half
 echo
 echo "[ok] Server ready. Next:"
 echo "   1) nano .env                       (Recraft + ElevenLabs keys)"
 echo "   2) put style refs in style/refs/   then: python tools/make_style.py"
-echo "   3) ./run_episode.sh episodes/02_communism.yaml --publish"
+echo "   3) ./run_episode.sh episodes/01_communism.yaml --publish"

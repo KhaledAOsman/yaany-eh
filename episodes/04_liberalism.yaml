@@ -1,0 +1,90 @@
+# ============================================================
+#  حلقة: يعني إيه.. ليبرالية؟   (~40 ثانية) — آخر حلقة في السلسلة
+#  ⚠️ مسودة كتبها Claude — راجع التعليق الصوتي قبل الريندر
+# ============================================================
+id: ep04_liberalism
+word: "ليبرالية"
+word_color: gold
+badge: "أنظمة العالم 4/4"
+
+assets:
+  bird: "flying bird"
+  cage: "open bird cage"
+  speech: "speech bubble"
+  briefcase: "briefcase (job)"
+  house: "house"
+  scroll: "constitution scroll"
+  gavel: "judge gavel"
+  parliament: "parliament"
+  president: "president"
+  scale: "balance scale"
+  burger_shop: "shop (free market)"
+  shield: "protection shield"
+  thinker: "thinking person"
+  question: "question mark"
+
+scenes:
+  - id: intro
+    type: intro
+    vo: "يعني إيه.. ليبرالية؟"
+    sfx:
+      - {name: thud, at: 0.0}
+      - {name: whoosh, cue: "ليبرالية"}
+    elements:
+      - {asset: cage, x: -320, y: -290, h: 300, in: pop, cue: "ليبرالية"}
+      - asset: bird
+        x: -320
+        y: -300
+        h: 120
+        in: pop
+        cue: "ليبرالية"
+        delay: 0.1
+        moves: [{cue: "ليبرالية", delay: 0.35, x: 330, y: 300, h: 200, dur: 0.6}]
+
+  - id: freedom
+    vo: "الليبرالية فكرة بتحط حرية الفرد في المركز: حريتك إنك تفكر وتتكلم، وتختار شغلك وأسلوب حياتك، طول ما انت مش بتأذي حد."
+    sfx:
+      - {name: whoosh, cue: "حرية"}
+      - {name: pop, cue: "وتتكلم"}
+      - {name: pop, cue: "شغلك"}
+      - {name: pop, cue: "حياتك"}
+    elements:
+      - {asset: cage, x: 0, y: 330, h: 470, in: drop, at: 0.1}
+      - asset: bird
+        x: 0
+        y: 300
+        h: 160
+        in: pop
+        cue: "حرية"
+        moves: [{cue: "المركز", x: 330, y: 680, h: 220, dur: 0.6}]
+        float: true
+      - {asset: speech,    x: -330, y: -250, h: 220, in: pop, cue: "وتتكلم"}
+      - {asset: briefcase, x:    0, y: -250, h: 210, in: pop, cue: "شغلك"}
+      - {asset: house,     x:  330, y: -250, h: 240, in: pop, cue: "حياتك"}
+
+  - id: state
+    vo: "والدولة دورها محدود: تحمي الحقوق دي بالقانون والدستور، وتقسم السلطة عشان محدش يتحكم لوحده. وفي الاقتصاد، بتميل للسوق الحر زي الرأسمالية."
+    sfx:
+      - {name: pop, cue: "بالقانون"}
+      - {name: pop, cue: "والدستور"}
+      - {name: whoosh, cue: "وتقسم"}
+      - {name: cash_register, cue: "الحر"}
+    elements:
+      - {asset: gavel,  x:  250, y: 340, h: 280, in: drop, cue: "بالقانون", out: {anim: fade, cue: "الاقتصاد"}}
+      - {asset: scroll, x: -250, y: 340, h: 380, in: drop, cue: "والدستور", out: {anim: fade, cue: "الاقتصاد"}}
+      - {asset: parliament, x: -330, y: -250, h: 220, in: rise, cue: "وتقسم"}
+      - {asset: president,  x:    0, y: -280, h: 360, in: rise, cue: "السلطة"}
+      - {asset: scale,      x:  330, y: -250, h: 270, in: rise, cue: "محدش"}
+      - {asset: burger_shop, x: 0, y: 360, h: 360, in: pop, cue: "الحر"}
+
+  - id: debate
+    vo: "مؤيدينها بيقولوا إنها أكتر نظام بيحمي كرامة الإنسان، ومنتقدينها بيقولوا إن الحرية الزيادة ممكن تهدد قيم المجتمع، وتوسّع الفجوة بين الناس. تفتكر الحرية لازم يكون ليها حدود؟"
+    sfx:
+      - {name: pop, cue: "كرامة"}
+      - {name: tilt, cue: "الفجوة"}
+      - {name: outro_music, cue: "تفتكر"}
+    elements:
+      - {asset: shield, x: -260, y: 360, h: 380, in: pop, cue: "كرامة"}
+      - {asset: scale,  x:  260, y: 360, h: 400, in: drop, cue: "ومنتقدينها", tilt: {cue: "الفجوة", deg: -10}}
+      - {asset: thinker,  x: -80, y: -250, h: 500, in: rise, cue: "تفتكر"}
+      - {asset: question, x: 260, y: -150, h: 280, in: pop, cue: "حدود", float: true}
